@@ -1,0 +1,50 @@
+{
+  "title": "Ship a health check endpoint",
+  "prompt": "Add GET /health returning JSON status ok.\nReturn 404 for unknown routes.\nInclude setup instructions.\nDocument the endpoint in API.md.",
+  "repoPath": "examples/health-api",
+  "scopeReviewed": true,
+  "allowCommands": true,
+  "autoVerify": false,
+  "criteria": [
+    {
+      "id": "health",
+      "title": "Health endpoint returns 200 and JSON status ok",
+      "promptQuote": "Add GET /health returning JSON status ok.",
+      "weight": 40,
+      "check": {
+        "kind": "command",
+        "executable": "node",
+        "args": ["--test", "health.test.mjs"],
+        "trustedFiles": ["health.test.mjs"],
+        "timeoutMs": 15000
+      }
+    },
+    {
+      "id": "not-found",
+      "title": "Unknown routes return HTTP 404",
+      "promptQuote": "Return 404 for unknown routes.",
+      "weight": 30,
+      "check": {
+        "kind": "command",
+        "executable": "node",
+        "args": ["--test", "not-found.test.mjs"],
+        "trustedFiles": ["not-found.test.mjs"],
+        "timeoutMs": 15000
+      }
+    },
+    {
+      "id": "setup",
+      "title": "Setup instructions include the test command",
+      "promptQuote": "Include setup instructions.",
+      "weight": 10,
+      "check": { "kind": "file", "path": "README.md", "contains": "node --test" }
+    },
+    {
+      "id": "docs",
+      "title": "Endpoint documentation describes GET /health",
+      "promptQuote": "Document the endpoint in API.md.",
+      "weight": 20,
+      "check": { "kind": "file", "path": "API.md", "contains": "GET /health" }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+node_modules
+dist
+.agent-progress
+artifacts
+test-results
+playwright-report
+package-lock.json

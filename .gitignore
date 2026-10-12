@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.agent-progress/
+.env*
+*.sqlite*
+playwright-report/
+test-results/
+artifacts/
+*.log
+!.env.example

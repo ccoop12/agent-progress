@@ -1,0 +1,6 @@
+{"type":"thread.started","thread_id":"00000000-0000-4000-8000-000000000001"}
+{"type":"turn.started"}
+{"type":"item.started","item":{"id":"item_1","type":"command_execution","command":"node --test health.test.mjs","status":"in_progress"}}
+{"type":"item.completed","item":{"id":"item_1","type":"command_execution","command":"node --test health.test.mjs","status":"completed","exit_code":0,"aggregated_output":"Synthetic example; this claim grants no progress."}}
+{"type":"item.completed","item":{"id":"item_2","type":"agent_message","text":"Everything is finished! This is a synthetic claim, not evidence."}}
+{"type":"turn.completed","usage":{"input_tokens":100,"output_tokens":20}}

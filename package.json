@@ -1,0 +1,42 @@
+{
+  "name": "agent-progress",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local-first, evidence-based progress observer for coding agents",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k \"tsx watch server/main.ts\" \"vite --host 127.0.0.1\"",
+    "build": "tsc --noEmit && vite build",
+    "start": "tsx server/main.ts",
+    "cli": "tsx server/cli.ts",
+    "demo": "tsx scripts/demo.ts",
+    "test": "vitest run",
+    "test:ui": "playwright test",
+    "check": "npm run build && npm test",
+    "test:codex": "tsx scripts/codex-smoke.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "concurrently": "^9.2.1",
+    "prettier": "^3.9.10",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.2.2",
+    "vitest": "^5.0.4"
+  }
+}
